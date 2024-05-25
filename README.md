@@ -26,13 +26,13 @@ The goal of this project is to explore and implement different supervised learni
 
 ### Data Cleaning
 
-- **Loading the Data**: The dataset is loaded from CSV files.
-- **Handling Missing Values**: Missing values are imputed using appropriate strategies.
+- **Loading the Data**: say some stuff here
+- **Handling Missing Values**: say some stuff here
 - **Encoding Categorical Variables**: Categorical variables are encoded using techniques such as one-hot encoding.
 
 ### Exploratory Data Analysis (EDA)
 
-- **Descriptive Statistics**: Summary statistics are computed for all features.
+- **Descriptive Statistics**: say some stuff here
 - **Visualizations**: Various plots such as histograms, boxplots, and scatter plots are created to understand the distributions and relationships between features.
 - **Correlation Analysis**: Correlation heatmaps are generated to identify relationships between features and the target variable.
 
