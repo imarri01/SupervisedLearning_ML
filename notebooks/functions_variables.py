@@ -1,16 +1,22 @@
-def encode_tags(df):
 
-    """Use this function to manually encode tags from each sale.
-    You could also provide another argument to filter out low 
-    counts of tags to keep cardinality to a minimum.
-       
+## THIS ISNT BEING USED. CAN BE DELETED UNLESS WANT TO BE USED LATER
+
+def select_columns(new_column_names, selected_columns, data):
+    
+    '''
+    This function is used to create a new Dataframe by filtering selected columns
+    then returning the new dataframe.
+
     Args:
-        pandas.DataFrame
-
+        new_column_names : list
+        selected_columns : list
+        data : pandas.dataframe
+    
     Returns:
-        pandas.DataFrame: modified with encoded tags
-    """
-    tags = df["tags"].tolist()
-    # create a unique list of tags and then create a new column for each tag
-        
-    return df
+        pandas:DataFrame
+    '''
+
+    dataframe = data[selected_columns]
+    dataframe.columns = new_column_names
+
+    return dataframe
