@@ -27,8 +27,8 @@ The goal of this project is to explore and implement different supervised learni
 
 ### Data Cleaning
 
-- **Loading the Data**: say some stuff here
-- **Handling Missing Values**: say some stuff here
+- **Loading the Data**: Loaded data from multiple json files and combined into one dataframe
+- **Handling Missing Values**: Imputated and removed null values
 - **Encoding Categorical Variables**: Categorical variables are encoded using techniques such as one-hot encoding.
 
 ### Exploratory Data Analysis (EDA)
