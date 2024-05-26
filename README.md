@@ -1,6 +1,7 @@
-# Data Science Midterm Project
+
 
 # LHL Supervised Learning Midterm
+![banner](/images/LHL_banner.jpg)
 
 Welcome to the repository for the Supervised Learning Midterm project. This project focuses on building and evaluating various machine learning regression models to predict house prices based on a given dataset.
 
