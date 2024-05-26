@@ -46,22 +46,27 @@ The goal of this project is to explore and implement different supervised learni
 
 ### Results
 
-Based on the evaluation metrics, the XGBoost Regressor performed the best among all models. Here are the results:
+#### Best Performing Model: Decision Tree Regressor
 
-- **Ridge Regression**
-  - Mean Absolute Error (MAE): 183,560.24
-  - Mean Squared Error (MSE): 185,582,330,054.32
-  - R^2 Score: 0.43897
+- **Mean Squared Error (MSE)**: 495,867,768.60
+- **Mean Absolute Error (MAE)**: 2,479.34
+- **R² Score**: 0.9985
 
-- **Lasso Regression**
-  - Mean Absolute Error (MAE): 183,445.61
-  - Mean Squared Error (MSE): 185,561,375,374.98
-  - R^2 Score: 0.43904
+#### Comparison with Other Models
 
-- **XGBoost Regressor**
-  - Mean Absolute Error (MAE): 30,427.51
-  - Mean Squared Error (MSE): 2,315,249,634.92
-  - R^2 Score: 0.99300
+| Model                         | Mean Squared Error (MSE)  | Mean Absolute Error (MAE)  | R² Score  |
+|-------------------------------|---------------------------|----------------------------|-----------|
+| **Decision Tree**             | 495,867,768.60            | 2,479.34                   | 0.9985    |
+| **Random Forest**             | 1,024,435,105.73          | 11,535.48                  | 0.9969    |
+| **XGBoost**                   | 2,504,522,904.09          | 30,133.23                  | 0.9924    |
+| **Linear Regression**         | 185,504,913,290.17        | 183,278.21                 | 0.4392    |
+| **Support Vector Machine**    | 346,285,720,808.71        | 220,627.45                 | -0.0468   |
+| **K-Nearest Neighbors**       | 26,662,809,917.36         | 70,867.77                  | 0.9194    |
+| **Gradient Boosting**         | 24,843,589,621.09         | 105,160.04                 | 0.9249    |
+| **AdaBoost**                  | 105,503,589,057.43        | 281,912.39                 | 0.6811    |
+| **Ridge Regression**          | 185,530,659,977.92        | 183,475.83                 | 0.4391    |
+| **Lasso Regression**          | 185,503,888,825.00        | 183,296.20                 | 0.4392    |
+| **ElasticNet Regression**     | 234,388,902,656.75        | 189,973.07                 | 0.2914    |
 
 ### Challenges
 
