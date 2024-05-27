@@ -3,79 +3,107 @@
 
 ![banner](/images/LHL_banner.png)
 
-Welcome to the repository for the Supervised Learning Midterm project. This project focuses on building and evaluating various machine learning regression models to predict house prices based on a given dataset.
+---
 
-## Table of Contents
+# LHL Supervised Learning Midterm
 
-- [Overview](#overview)
-- [Project Steps](#project-steps)
-  - [Data Cleaning](#data-cleaning)
-  - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
-  - [Model Selection and Training](#model-selection-and-training)
-  - [Results](#results)
-  - [Challenges](#challenges)
-- [Directory Structure](#directory-structure)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+## 🌟 Overview
 
-## Overview
+The goal of this project is to explore and implement different supervised learning regression models to predict the price of houses based on various features such as square footage, number of bedrooms, number of bathrooms, and other relevant attributes. We evaluated the performance of these models using various metrics to determine the best model for this task.
 
-The goal of this project is to explore and implement different supervised learning regression models to predict the price of houses based on various features such as square footage, number of bedrooms, number of bathrooms, and other relevant attributes. We evaluate the performance of these models using various metrics to determine the best model for this task.
+## 👥 Group Members
 
-## Project Steps
+- **Ramon Kidd:** Contributor
+- **Kiran Reid:** Contributor
 
-### Data Cleaning
 
-- **Loading the Data**: Loaded data from multiple json files and combined into one dataframe
-- **Handling Missing Values**: Imputated and removed null values
-- **Encoding Categorical Variables**: Categorical variables are encoded using techniques such as one-hot encoding.
+## 🛠️ Project Steps
 
-### Exploratory Data Analysis (EDA)
+### 🧹 Data Cleaning
 
-- **Descriptive Statistics**: say some stuff here
-- **Visualizations**: Various plots such as histograms, boxplots, and scatter plots are created to understand the distributions and relationships between features.
-- **Correlation Analysis**: Correlation heatmaps are generated to identify relationships between features and the target variable.
+- **Source of Data:** The dataset includes various features relevant to predicting house prices.
+- **Raw Data:** Located in the `data/raw_json_files` directory.
+- **Processed Data:** Located in the `data/processed` directory with the main file being `raw_merged_df_data.csv`.
+- **Actions:**
+  - Loaded the raw data from JSON files.
+  - Merged multiple data sources into a single dataframe.
+  - Handled missing values by appropriate imputation methods.
+  - Converted categorical variables into numerical format using encoding techniques.
 
-### Model Selection and Training
+### 📊 Exploratory Data Analysis (EDA)
 
-- **Linear Regression**: Basic linear regression model.
-- **Ridge Regression**: Linear regression with L2 regularization.
-- **Lasso Regression**: Linear regression with L1 regularization.
-- **XGBoost Regressor**: Gradient boosting regression model.
+- **Notebooks:** EDA steps are documented in `notebooks/1 - EDA.ipynb`.
+- **Visualizations:**
+  - Various bar graphs (`images/bar_graphs_categorical.png`, `images/bar_graphs_numerical.png`).
+  - Box plots (`images/box_plots.png`).
+  - Correlation heatmaps (`images/correlation_heatmap_new.png`, `images/correlation_heatmap.png`).
+  - Pair plot (`images/pair_plot.png`).
+  - Price distribution plot (`images/price_distribution.png`).
+- **Actions:**
+  - Analyzed the distribution of key features.
+  - Examined relationships between features and the target variable (house prices).
+  - Identified potential outliers and anomalies.
 
-### Results
+### 🔍 Model Selection
 
-#### Best Performing Model: Decision Tree Regressor
+- **Notebooks:** Model selection steps are documented in `notebooks/2 - model-selection.ipynb`.
+- **Models Tested:**
+  - Decision Tree
+  - Random Forest
+  - Other relevant regression models
+- **Actions:**
+  - Split the data into training and testing sets.
+  - Trained multiple models on the training set.
+  - Evaluated models using metrics such as Mean Absolute Error (MAE), Mean Squared Error (MSE), and R-squared.
+  - Selected the best-performing models for further tuning.
 
-- **Mean Squared Error (MSE)**: 495,867,768.60
-- **Mean Absolute Error (MAE)**: 2,479.34
-- **R² Score**: 0.9985
+### 🔧 Model Tuning
 
-#### Comparison with Other Models
+- **Notebooks:** Tuning steps are documented in `notebooks/3 - tunning_pipeline.ipynb`.
+- **Actions:**
+  - Hyperparameter tuning using techniques such as Grid Search and Random Search.
+  - Validated model performance using cross-validation.
+  - Finalized the best model based on performance metrics.
+
+### 🚀 MLOps Pipeline
+
+- **Pipeline:** Located in the `models/pipeline` directory.
+- **Files:**
+  - `decision_tree_pipeline.pkl`
+  - `final_pipeline.pkl`
+- **Actions:**
+  - Created a scalable pipeline for model training and deployment.
+  - Automated the data preprocessing, model training, and evaluation process.
+  - Saved the final model and pipeline for deployment.
+
+## 📈 Results
+
+Based on the performance metrics selected, the **Decision Tree Regressor** performed the best across all the models. See details results and comparison below, along with summary and next steps for Part 3 of the project:
+
+##### ***Best Performing Model: Decision Tree Regressor***
+
+- **Mean Squared Error (MSE)**: 6,193,112,904.08
+- **Mean Absolute Error (MAE)**: 8,933.19
+- **R² Score**: 0.9864
+
+##### ***Comparison with Other Models***
 
 | Model                         | Mean Squared Error (MSE)  | Mean Absolute Error (MAE)  | R² Score  |
 |-------------------------------|---------------------------|----------------------------|-----------|
-| **Decision Tree**             | 495,867,768.60            | 2,479.34                   | 0.9985    |
-| **Random Forest**             | 1,024,435,105.73          | 11,535.48                  | 0.9969    |
-| **XGBoost**                   | 2,504,522,904.09          | 30,133.23                  | 0.9924    |
-| **Linear Regression**         | 185,504,913,290.17        | 183,278.21                 | 0.4392    |
-| **Support Vector Machine**    | 346,285,720,808.71        | 220,627.45                 | -0.0468   |
-| **K-Nearest Neighbors**       | 26,662,809,917.36         | 70,867.77                  | 0.9194    |
-| **Gradient Boosting**         | 24,843,589,621.09         | 105,160.04                 | 0.9249    |
-| **AdaBoost**                  | 105,503,589,057.43        | 281,912.39                 | 0.6811    |
-| **Ridge Regression**          | 185,530,659,977.92        | 183,475.83                 | 0.4391    |
-| **Lasso Regression**          | 185,503,888,825.00        | 183,296.20                 | 0.4392    |
-| **ElasticNet Regression**     | 234,388,902,656.75        | 189,973.07                 | 0.2914    |
+| **Decision Tree**             | 6,193,112,904.08          | 8,933.19                   | 0.9864    |
+| **Random Forest**             | 6,612,175,921.27          | 24,107.06                  | 0.9855    |
+| **XGBoost**                   | 4,439,562,534.91          | 21,193.02                  | 0.9902    |
+| **Linear Regression**         | 274,501,793,270.35        | 204,038.20                 | 0.3967    |
+| **Support Vector Machine**    | 483,900,366,034.21        | 250,867.79                 | -0.0636   |
+| **K-Nearest Neighbors**       | 77,604,134,366.93         | 97,416.02                  | 0.8294    |
+| **Gradient Boosting**         | 34,976,229,429.47         | 109,245.70                 | 0.9231    |
+| **AdaBoost**                  | 87,353,813,837.12         | 247,798.41                 | 0.8080    |
+| **Ridge Regression**          | 274,532,623,656.19        | 203,986.27                 | 0.3966    |
+| **Lasso Regression**          | 274,502,594,826.23        | 204,035.61                 | 0.3967    |
+| **ElasticNet Regression**     | 291,398,512,534.51        | 198,455.73                 | 0.3595    |
 
-### Challenges
 
-- **Handling Missing Values**: Dealing with missing data and choosing appropriate imputation strategies.
-- **Categorical Encoding**: Ensuring that categorical variables are properly encoded for model training.
-- **Model Tuning**: Selecting the right hyperparameters for models like Ridge, Lasso, and XGBoost.
-- **Evaluation Metrics**: Choosing the right metrics to evaluate model performance and interpret results effectively.
-
-## Directory Structure
+## 🗂️ Directory Structure
 
 The repository is organized as follows:
 
@@ -91,7 +119,7 @@ LHL_supervisedLearningMidterm/
 ├── assignment.md         # Assignment details and instructions
 ```
 
-## Usage
+## 🚀 Usage
 
 To run the project and evaluate the models, follow these steps:
 
@@ -120,10 +148,7 @@ To run the project and evaluate the models, follow these steps:
 
 (what would you do if you had more time?)
 
-## Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
+---
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
