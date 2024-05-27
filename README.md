@@ -68,7 +68,7 @@ The goal of this project is to explore and implement different supervised learni
   - Compared different tuned models to see which preformed better
   - Selected best model for feature selection
 
-### Feature Selection
+### 🪚 Feature Selection
 
 - **Notebooks:** Tuning steps are documented in `notebooks/3 - tunning_pipeline.ipynb`.
 - **Actions:**
@@ -146,13 +146,13 @@ To run the project and evaluate the models, follow these steps:
 
 4. Open the respective notebook in the `notebooks` directory and run the cells to see the results.
 
-## Challenges
+## 💬 Challenges
 
 - Separating the `tag` category into different columns
 - Hyperparameter tuning the models
 - Deciding how to encode the `city` category
 
-## Future Goals
+## ✨ Future Goals
 
 - Explore different preprocessing methods
 - Search for data that could potentially be added to the model in order to achieve better results
