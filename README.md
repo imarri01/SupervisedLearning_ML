@@ -9,12 +9,12 @@
 
 ## 🌟 Overview
 
-The goal of this project is to explore and implement different supervised learning regression models to predict the price of houses based on various features such as square footage, number of bedrooms, number of bathrooms, and other relevant attributes. We evaluated the performance of these models using various metrics to determine the best model for this task.
+The goal of this project is to explore and implement different supervised learning regression models to predict the price of houses based on various features such as square footage, number of bedrooms, number of bathrooms, and other relevant attributes. We evaluated the performance of these models using various metrics to determine the best model and parameters for this task.
 
 ## 👥 Group Members
 
 - **Ramon Kidd:** Contributor
-- **Kiran Reid:** Contributor
+- **Kiran Wood:** Contributor
 
 
 ## 🛠️ Project Steps
@@ -29,6 +29,7 @@ The goal of this project is to explore and implement different supervised learni
   - Merged multiple data sources into a single dataframe.
   - Handled missing values by appropriate imputation methods.
   - Converted categorical variables into numerical format using encoding techniques.
+  - Split the data into training and test sets
 
 ### 📊 Exploratory Data Analysis (EDA)
 
@@ -46,13 +47,13 @@ The goal of this project is to explore and implement different supervised learni
 
 ### 🔍 Model Selection
 
-- **Notebooks:** Model selection steps are documented in `notebooks/2 - model-selection.ipynb`.
+- **Notebooks:** Model selection steps are documented in `notebooks/2 - model_selection.ipynb`.
 - **Models Tested:**
   - Decision Tree
   - Random Forest
   - Other relevant regression models
 - **Actions:**
-  - Split the data into training and testing sets.
+  - Split the training data into training and validation sets.
   - Trained multiple models on the training set.
   - Evaluated models using metrics such as Mean Absolute Error (MAE), Mean Squared Error (MSE), and R-squared.
   - Selected the best-performing models for further tuning.
@@ -64,43 +65,43 @@ The goal of this project is to explore and implement different supervised learni
   - Hyperparameter tuning using techniques such as Grid Search and Random Search.
   - Validated model performance using cross-validation.
   - Finalized the best model based on performance metrics.
+  - Compared different tuned models to see which preformed better
+  - Selected best model for feature selection
+
+### Feature Selection
+
+- **Notebooks:** Tuning steps are documented in `notebooks/3 - tunning_pipeline.ipynb`.
+- **Actions:**
+  - Analyzed the top 10 important features of best model
+  - Used visualization (`images/top_features_graph.png`)
+  - Compared a model with only most important features vs one without
+  - Chose best model to move onto final pipeline
 
 ### 🚀 MLOps Pipeline
 
 - **Pipeline:** Located in the `models/pipeline` directory.
 - **Files:**
-  - `decision_tree_pipeline.pkl`
   - `final_pipeline.pkl`
 - **Actions:**
   - Created a scalable pipeline for model training and deployment.
   - Automated the data preprocessing, model training, and evaluation process.
-  - Saved the final model and pipeline for deployment.
+  - Saved the final model/pipeline for deployment.
 
 ## 📈 Results
 
-Based on the performance metrics selected, the **Decision Tree Regressor** performed the best across all the models. See details results and comparison below, along with summary and next steps for Part 3 of the project:
+After all the comparisons and finetuning, the **Decision Tree Regressor** was the best performeing across all the models. These are the parameters used and results on test data:
 
 ##### ***Best Performing Model: Decision Tree Regressor***
 
-- **Mean Squared Error (MSE)**: 6,193,112,904.08
-- **Mean Absolute Error (MAE)**: 8,933.19
-- **R² Score**: 0.9864
+- **Mean Squared Error (MSE)**: 3,366,377,871.16
+- **Mean Absolute Error (MAE)**: 10,258.26
+- **R² Score**: 0.9898
 
-##### ***Comparison with Other Models***
+##### ***Model and Parameter Details***
 
-| Model                         | Mean Squared Error (MSE)  | Mean Absolute Error (MAE)  | R² Score  |
-|-------------------------------|---------------------------|----------------------------|-----------|
-| **Decision Tree**             | 6,193,112,904.08          | 8,933.19                   | 0.9864    |
-| **Random Forest**             | 6,612,175,921.27          | 24,107.06                  | 0.9855    |
-| **XGBoost**                   | 4,439,562,534.91          | 21,193.02                  | 0.9902    |
-| **Linear Regression**         | 274,501,793,270.35        | 204,038.20                 | 0.3967    |
-| **Support Vector Machine**    | 483,900,366,034.21        | 250,867.79                 | -0.0636   |
-| **K-Nearest Neighbors**       | 77,604,134,366.93         | 97,416.02                  | 0.8294    |
-| **Gradient Boosting**         | 34,976,229,429.47         | 109,245.70                 | 0.9231    |
-| **AdaBoost**                  | 87,353,813,837.12         | 247,798.41                 | 0.8080    |
-| **Ridge Regression**          | 274,532,623,656.19        | 203,986.27                 | 0.3966    |
-| **Lasso Regression**          | 274,502,594,826.23        | 204,035.61                 | 0.3967    |
-| **ElasticNet Regression**     | 291,398,512,534.51        | 198,455.73                 | 0.3595    |
+| Best Model                         | Parameters  | Preprocessing  |
+|-------------------------------|---------------------------|----------------------------|
+| **Decision Tree**             | `max_depth`: None, `min_samples_leaf`: 1, `min_samples_split`: 2          | `Numerical Data`: StandardScaler, `Categorical Data`: OneHotEncoding     |
 
 
 ## 🗂️ Directory Structure
@@ -115,6 +116,7 @@ LHL_supervisedLearningMidterm/
 ├── models/               # Saved models and model-related files
 ├── notebooks/            # Jupyter notebooks for data analysis and model training
 ├── .DS_Store             # System file
+├── old_files             # Old files made during project progress
 ├── README.md             # Project README file
 ├── assignment.md         # Assignment details and instructions
 ```
@@ -144,10 +146,17 @@ To run the project and evaluate the models, follow these steps:
 
 4. Open the respective notebook in the `notebooks` directory and run the cells to see the results.
 
+## Challenges
+
+- Separating the `tag` category into different columns
+- Hyperparameter tuning the models
+- Deciding how to encode the `city` category
+
 ## Future Goals
 
-(what would you do if you had more time?)
-
+- Explore different preprocessing methods
+- Search for data that could potentially be added to the model in order to achieve better results
+- Try more unique models to see how they will work with the data
 
 ---
 
